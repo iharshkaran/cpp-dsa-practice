@@ -2,7 +2,7 @@
 using namespace std;
 int main(){
     int n;
-    cout<<"ENter Size of Array :";
+    cout<<"Enter Size of Array :";
     cin>>n;
     int arr[n];
     for(int i=0 ; i<n ; i++){

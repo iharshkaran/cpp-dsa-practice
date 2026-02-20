@@ -1,17 +1,18 @@
-#include<iostream>
-#include<vector>
+#include <iostream>
+#include <vector>
 using namespace std;
-int main(){
+int main()
+{
     int x;
-    cout<<"Enter target : ";
-    cin>>x;
+    cout << "Enter target : ";
+    cin >> x;
     vector<int> v;
     int n;
-    cout<<"Enter array size : ";
-    cin>>n;
-    for(int i=0;i<n ; i++){
+    cout << "Enter array size : ";
+    cin >> n;
+    for (int i = 0; i < n; i++){
         int q;
-        cin>>q;
+        cin >> q;
         v.push_back(q);
     }
 
@@ -19,5 +20,18 @@ int main(){
         for(int j=i+1; j<v.size()-1 ; j++){
             if(v[i]+v[j]==x) cout<<"("<<i<<","<<j<<")"<<endl;
         }
+    }
+
+    int i = 0;
+    int j = v.size()-1;
+    while(i<j){
+        if(v[i]+v[j]==x){
+            cout<<"("<<i<<","<<j<<")";
+        }
+        else if(v[i]>x){
+            i++;
+        }
+
+        j--;
     }
 }
