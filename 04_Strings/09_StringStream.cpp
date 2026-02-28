@@ -5,6 +5,7 @@
 #include<sstream>
 using namespace std;
 int main(){
+    //StringStream
     string s;
     cout<<"Enter the sentence : ";
     getline(cin , s);

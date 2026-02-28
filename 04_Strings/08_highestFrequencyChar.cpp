@@ -31,7 +31,6 @@ int main(){
     // cout<<max<<" "<<maxChar;
     
 
-    //filling
     string str = "leetcode";
     vector<int> arr(26,0);
     for(int i=0; i<str.length(); i++){
