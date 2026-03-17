@@ -29,7 +29,7 @@ int main(){
     cout<<a<<" raised to the power "<<b<<" is "<<power(a,b);
 }
 
-// leetcode - 50
+// leetCode - 50 (Run time Limit Exceeded)
 class Solution {
 public:
     double myPow(double x, int n) {
