@@ -2,11 +2,11 @@
 using namespace std;
 void zigZag(int n){
     if(n==0) return;
-    cout<<n;
+    cout<<n; //Pre
     zigZag(n-1);
-    cout<<n;
+    cout<<n; //In
     zigZag(n-1);
-    cout<<n;
+    cout<<n; //Post
 }
 int main(){
     zigZag(3);
