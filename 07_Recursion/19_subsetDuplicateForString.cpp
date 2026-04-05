@@ -10,12 +10,10 @@ void storeSubset(string ans, string &original, vector<string> &v, int idx, bool 
     }
 
     char ch = original[idx];
-
     // include
     if(flag==true){
         storeSubset(ans + ch, original, v, idx + 1, true);
     }
-
     // exclude
     if(original[idx]==original[idx+1] && idx+1<original.size()){
         storeSubset(ans, original, v, idx + 1, false);
