@@ -37,6 +37,55 @@ public:
         head = temp;}
         size++;
     }
+    void insertAtIdx(int idx, int val){
+        if(idx<0 || idx>=size) cout<<"Invalid"<<endl;
+        else if(idx==0) insertAtHead(val);
+        else if(idx==size-1) insertAtTail(val);
+        else{
+            Node* temp = new Node(val);
+            Node* t = head;
+            for(int i=0; i<idx-1; i++){
+                t = t->next;
+            }
+            temp->next = t->next;
+            t->next = temp;
+            size++;
+        }
+    }
+    int getAtIdx(int idx){
+        if(idx<0 || idx>=size){
+            cout<<"Invalid Idx"<<endl;
+            return -1;
+        } 
+        else if(idx==0) return head->val;
+        else{
+            Node* temp = head;
+            for(int i=0; i<idx; i++){
+                temp = temp->next;
+            }
+            return temp->val;
+        }
+    }
+    void deleteAtHead(){
+        head = head->next;
+        size--;
+    }
+    void deleteAtTail(){
+        Node* temp = head;
+        for(int i=0; i<size-2; i++){
+            temp = temp->next;
+        }
+        temp->next = NULL;
+        size--;
+    }
+    void deleteAtIdx(int idx){
+        Node* temp = head;
+        for(int i=0; i<idx-1;i++){
+            temp = temp->next;
+        }
+        temp->next = temp->next->next;
+        size--;
+    }
     void display(){
         Node* temp = head;
         while(temp != NULL){
@@ -55,5 +104,14 @@ int main(){
     ll.insertAtTail(88);
     ll.display();
     ll.insertAtHead(55);
+    ll.display();
+    ll.insertAtIdx(0,99);
+    ll.insertAtIdx(5,69);
+    ll.insertAtIdx(5,69);
+    ll.display();
+    cout<<ll.getAtIdx(5)<<endl;
+    ll.deleteAtHead();
+    ll.display();
+    ll.deleteAtIdx(2);
     ll.display();
 }
