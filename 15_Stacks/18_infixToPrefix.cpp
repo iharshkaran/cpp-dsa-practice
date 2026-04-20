@@ -1,27 +1,29 @@
 #include<iostream>
 #include<string>
+#include<stack>
 using namespace std;
 int prio(char op){
     if(op =='+' ||op == '-') return 1;
     else return 2;
 }
-int solve(int val1 , int val2, char ch){
-    if(ch == '+') return val1+val2;
-    else if(ch == '-') return val1-val2;
-    else if(ch == '*') return val1*val2;
-    else return val1/val2;
+string solve(string val1 , string val2, char ch){
+    // string s = "";
+    // s.push_back(ch);
+    // s += val1;
+    // s += val2;
+    // return s;
+    return ch + val1 + val2;
 }
 int main(){
     string s = "(2+6)*4/8-1"; // Infix Expression
-    // We need 2 stacks, 1 for vals, 2 for ops
-    stack<int> val;
+    // We need 2 stacks, 1 for vals (string), 2 for ops
+    stack<string> val;
     stack<char> op;
     for(int i=0; i<s.length(); i++){
-        //check if s[i] is a digit (0-9)
-        if(s[i]>=48 && s[i]<=57){ // digit
-            val.push(s[i]-48);
+        if(s[i]>=48 && s[i]<=57){ // sting 
+            val.push(to_string(s[i]-48));
         }
-        else { // s[i] it is -> * ,- , +, /, (, )
+        else { // s[i] it is -> * ,- , +, /
             if(op.size()==0) op.push(s[i]);
             else if(s[i] == '(') op.push(s[i]);
             else if(op.top()=='(') op.push(s[i]);
@@ -29,25 +31,25 @@ int main(){
                 while(op.top()!= '('){
                     char ch = op.top();
                     op.pop();
-                    int v2 = val.top();
+                    string v2 = val.top();
                     val.pop();
-                    int v1 = val.top();
+                    string v1 = val.top();
                     val.pop();
-                    int ans = solve(v1,v2,ch);
+                    string ans = solve(v1,v2,ch);
                     val.push(ans);
                 }
                 op.pop(); // delete '(' closing bracket
             }
-            else if(prio(s[i])>prio(op.top())) op.push(s[i]);
+            else if(prio(s[i])>prio(op.top())) op.push(s[i]); 
             else{
                 while(op.size()>0 && prio(s[i])<=prio(op.top())){
                     char ch = op.top();
                     op.pop();
-                    int v2 = val.top();
+                    string v2 = val.top();
                     val.pop();
-                    int v1 = val.top();
+                    string v1 = val.top();
                     val.pop();
-                    int ans = solve(v1,v2,ch);
+                    string ans = solve(v1,v2,ch);
                     val.push(ans);
                 }
                 op.push(s[i]);
@@ -59,11 +61,11 @@ int main(){
     while(op.size()>0){
         char ch = op.top();
         op.pop();
-        int v2 = val.top();
+        string v2 = val.top();
         val.pop();
-        int v1 = val.top();
+        string v1 = val.top();
         val.pop();
-        int ans = solve(v1,v2,ch);
+        string ans = solve(v1,v2,ch);
         val.push(ans);
     }
     cout<<val.top();
