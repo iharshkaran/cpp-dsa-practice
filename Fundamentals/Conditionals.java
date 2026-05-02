@@ -18,7 +18,7 @@ public class Conditionals {
         // if else statement
         System.out.println("-----------------------------");
         System.out.println("--- else if statement ---");
-        System.out.println("Find the largest of three numbers:");
+        System.out.println("1. Find the largest of three numbers:");
         
         System.out.print("Enter first number: ");
         int num1 = scanner.nextInt();
@@ -32,6 +32,16 @@ public class Conditionals {
             System.out.println("The largest number is: " + num2);
         } else {
             System.out.println("The largest number is: " + num3);
+        }
+
+        System.out.println("\n");
+        System.out.println("2. check if year is leap year or not:");
+        System.out.print("Enter a year: ");
+        int year = scanner.nextInt();
+        if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
+            System.out.println(year + " is a leap year.");
+        } else {
+            System.out.println(year + " is not a leap year.");
         }
 
         // nested if else statement
