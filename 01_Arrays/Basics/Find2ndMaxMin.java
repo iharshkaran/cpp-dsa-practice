@@ -15,15 +15,12 @@ public class Find2ndMaxMin {
         for(int ele : arr){
             IO.print(ele + " ");
         }
-        int max = Integer.MIN_VALUE;
-        int min = Integer.MAX_VALUE;
+        IO.println();
+        // max 
+        IO.println("max element is "+ max(arr));
+        // min
+        IO.println("min element is "+ min(arr));
 
-        int SecMax = max;
-        for(int i=0; i<n; i++){
-            SecMax = max;
-            if(max<arr[i]) max = arr[i];
-        }
-
-        IO.println("\n"+SecMax);
-    }
+        sc.close();
+    } 
 }

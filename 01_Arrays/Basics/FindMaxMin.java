@@ -15,17 +15,30 @@ public class FindMaxMin {
         for(int ele : arr){
             IO.print(ele + " ");
         }
-
-        // find Max
-        int max = Integer.MIN_VALUE;
-        int min = Integer.MAX_VALUE;
-        for(int i=0; i<n; i++){
-            if(max<arr[i]) max = arr[i];
-            if(min>arr[i]) min = arr[i];
-        }
-        IO.println("\nMax = "+max);
-        IO.println("Min = "+min);
+        IO.println();
+        // max 
+        IO.println("max element is "+ max(arr));
+        // min
+        IO.println("min element is "+ min(arr));
 
         sc.close();
+    }
+
+    // Max
+    public static int max(int[] arr){
+        int max = Integer.MIN_VALUE;
+        for(int i=0; i<arr.length; i++){
+            if(max<arr[i]) max = arr[i];
+        }
+        return max;
+    }
+
+    // Min
+    public static int min(int[] arr){
+        int min = Integer.MAX_VALUE;
+        for(int i=0; i<arr.length; i++){
+            if(min>arr[i]) min = arr[i];
+        }
+        return min;
     }
 }
