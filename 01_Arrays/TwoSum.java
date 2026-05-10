@@ -6,8 +6,8 @@ public class TwoSum {
         System.out.print("Enter the size of Array : ");
         int n = sc.nextInt();
         int[] arr = new int[n];
+         System.out.print("Enter Elements : ");
         for(int i=0; i<n; i++){
-            System.out.print("Enter Element at index " + i + " : ");
             arr[i] = sc.nextInt();
         }
         for(int ele : arr){
@@ -29,6 +29,7 @@ public class TwoSum {
                     flag = true;
                     break;
                 }
+                if(flag) break;
             }
         }
         if(!flag) System.out.println("Not Exist");
