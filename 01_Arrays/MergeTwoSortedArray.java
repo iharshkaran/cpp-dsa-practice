@@ -12,23 +12,16 @@ public class MergeTwoSortedArray {
 
         while(i>=0 && j>=0){
             if(arr1[i]>arr2[j]){
-                ans[k] = arr1[i];
-                i--;
+                ans[k--] = arr1[i--];
             } else {
-                ans[k] = arr2[j];
-                j--;
+                ans[k--] = arr2[j--];
             }
-            k--;
         }
         while(i>=0){
-            ans[k] = arr1[i];
-            i--;
-            k--;
+            ans[k--] = arr1[i--];
         }
         while(j>=0){
-            ans[k] = arr2[j];
-            j--;
-            k--;
+            ans[k--] = arr2[j--];
         }
         Display(ans);
     }

@@ -1,5 +1,3 @@
-package Basics;
-
 import java.util.Scanner;
 
 public class Find2ndMaxMin {
@@ -37,7 +35,9 @@ public class Find2ndMaxMin {
 
         int secMax = Integer.MIN_VALUE;
         for(int i=0; i<arr.length; i++){
-            if(secMax<arr[i] && max != arr[i]) secMax = arr[i];
+            // if(secMax<arr[i] && max != arr[i]) secMax = arr[i];
+            if(max==arr[i]) continue;
+            if(secMax<arr[i]) secMax = arr[i];
         }
         return secMax;
     }
